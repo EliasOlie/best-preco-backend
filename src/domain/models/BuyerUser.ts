@@ -1,7 +1,7 @@
-import { BaseUser } from "./BaseUser";
+import { BaseUser, BaseUserDTO } from "./BaseUser";
 
 class BuyerUser extends BaseUser{
-    private cpf: string
+    public cpf: string
 
     constructor(props: BuyerUser){
         super(props)
@@ -9,4 +9,8 @@ class BuyerUser extends BaseUser{
     }
 }
 
-export { BuyerUser }
+class BuyerUserDTO extends BaseUserDTO {
+    cpf: string
+}
+
+export { BuyerUser, BuyerUserDTO }

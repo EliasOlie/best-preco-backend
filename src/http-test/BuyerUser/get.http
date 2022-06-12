@@ -1,0 +1,8 @@
+@userEmail = "a@b.com"
+@id = "123"
+#Get User by email
+GET http://localhost:3000/buyer/user/{{userEmail}}
+
+
+#Get user by id
+GET http://localhost:3000/buyer/user/{{id}}
