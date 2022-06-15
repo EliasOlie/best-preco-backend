@@ -15,8 +15,10 @@ class ReadBuyerUserController {
         } catch (error) {
             if (error instanceof Error){
                 response.status(404).send({message: "User not found"})
+            }else{
+
+                response.status(500).send({message: "Something went wrong :P"})
             }
-            response.status(500).send({message: "Something went wrong :P"})
         }
     }
 }

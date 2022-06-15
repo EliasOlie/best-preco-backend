@@ -1,4 +1,4 @@
-import IBuyerUserRepo from "../../../repositories/BuyerUserRepo";
+import { IBuyerUserRepo } from "../../../repositories/BuyerUserRepo";
 
 class ReadBuyerUserCase {
     constructor(

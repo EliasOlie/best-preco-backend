@@ -1,5 +1,5 @@
 import { BuyerUser, BuyerUserDTO } from "../../../models/BuyerUser";
-import IBuyerUserRepo from "../../../repositories/BuyerUserRepo";
+import { IBuyerUserRepo } from "../../../repositories/BuyerUserRepo";
 
 class CreateBuyerUserCase{
     constructor(
@@ -10,13 +10,11 @@ class CreateBuyerUserCase{
         const userExists = await this.buyerUserRepo.readBuyerUser(data.userEmail)
 
         if (!userExists){
-            try {
-                const newUser = new BuyerUser(data)
-                await this.buyerUserRepo.createBuyerUser(newUser)
-            } catch (error) {
-                throw new Error("Something went wrong :P")
-            }
+            await this.buyerUserRepo.createBuyerUser(data)
+        }else{
+            throw new Error("This user already exists!")
         }
+
     }
 }
 
