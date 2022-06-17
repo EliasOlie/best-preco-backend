@@ -1,34 +1,43 @@
-import { BuyerUser } from "../../../domain/models/BuyerUser";
-import { IBuyerUserRepo, BuyerUserChangeDTO } from "../../../domain/repositories/BuyerUserRepo";
+import { BuyerUser, BuyerUserDTO } from "../../../domain/models/BuyerUser";
+import { IBuyerUserRepo } from "../../../domain/repositories/BuyerUserRepo";
 
 let inMemoryDB:Array<BuyerUser> = []
 
 class InMemoryBuyerUserImplementation implements IBuyerUserRepo {
-    async createBuyerUser(bUser: BuyerUser): Promise<void> {
+    async createBuyerUser(bUser: BuyerUserDTO): Promise<void> {
         inMemoryDB.push(new BuyerUser(bUser))
     }
 
     async readBuyerUser(email: string): Promise<BuyerUser | null> {
         return inMemoryDB.filter((user) => (
-            user.userEmail === email
+            user.getUserEmail === email
         ))[0]
     }
 
     async deleteBuyerUser(email: string): Promise<void> {
-        inMemoryDB = inMemoryDB.splice(inMemoryDB.findIndex(user => user.userEmail === email), 1)
+        inMemoryDB = inMemoryDB.splice(inMemoryDB.findIndex(user => user.getUserEmail === email), 1) //Not working when ther's only one user
     }
 
     async getAll(): Promise<BuyerUser[]> {
         return inMemoryDB
     }
 
-    async updateBuyerUser(email: string, payload: BuyerUserChangeDTO): Promise<void> { //Métodos isolados -> Manter a intenção explicita "Clean Code!"
-        const user = await this.readBuyerUser(email)
-        // if (user) {
-        //     user[payload.field] = payload.value
-        // }else{
-        //     throw new Error("This user does not exists")
-        // }
+    async updateUserName(user: BuyerUser, newName: string): Promise<void> {
+        user.updateUserName(newName)
+        let modificationAt = new Date(Date.now())
+        user.updateModifiedAt(modificationAt.toLocaleDateString())
+    }
+
+    async updateUserEmail(user: BuyerUser, newEmail: string): Promise<void> {
+        user.updateUserEmail(newEmail)
+        let modificationAt = new Date(Date.now())
+        user.updateModifiedAt(modificationAt.toLocaleDateString())
+    }
+
+    async updateUserPassword(user: BuyerUser, newPassword: string): Promise<void> {
+        user.updateUserPassword(newPassword)
+        let modificationAt = new Date(Date.now())
+        user.updateModifiedAt(modificationAt.toLocaleDateString())
     }
 }
 

@@ -1,12 +1,17 @@
 import { BaseUser, BaseUserDTO } from "./BaseUser";
 
 class BuyerUser extends BaseUser{
-    public cpf: string
+    private cpf: string
 
-    constructor(props: BuyerUser){
+    constructor(props: BuyerUserDTO){
         super(props)
         Object.assign(this, props)
     }
+
+    public get getCpf(){
+        return this.cpf
+    }
+    //CPF Wont change
 }
 
 class BuyerUserDTO extends BaseUserDTO {

@@ -1,16 +1,13 @@
-import { BuyerUser } from "../models/BuyerUser";
-
-interface BuyerUserChangeDTO {
-    field: string
-    value: any
-}
+import { BuyerUser, BuyerUserDTO } from "../models/BuyerUser";
 
 interface IBuyerUserRepo {
-    createBuyerUser(bUser: BuyerUser):Promise<void>
+    createBuyerUser(bUser: BuyerUserDTO):Promise<void>
     readBuyerUser(email: string): Promise<BuyerUser | null>
-    updateBuyerUser(email: string, payload: BuyerUserChangeDTO): Promise<void>
     deleteBuyerUser(email: string): Promise<void>
     getAll(): Promise<Array<BuyerUser>>
+    updateUserName(user: BuyerUser, newName: string): Promise<void>
+    updateUserEmail(user: BuyerUser, newEmail: string): Promise<void>
+    updateUserPassword(user: BuyerUser, newPassword: string): Promise<void>
 }
 
-export { IBuyerUserRepo, BuyerUserChangeDTO}
+export { IBuyerUserRepo }

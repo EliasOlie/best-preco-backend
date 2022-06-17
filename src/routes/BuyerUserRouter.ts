@@ -3,6 +3,7 @@ import { createBuyerUserCase ,createBuyerUserController } from "../domain/cases/
 import { readBuyerUserCase, readBuyerUserController } from "../domain/cases/BuyerUser/readBuyerUser";
 import { getAllCase, getAllController } from "../domain/cases/BuyerUser/getAll";
 import { deleteBuyerUserCase, deleteBuyerUserController } from "../domain/cases/BuyerUser/deleteBuyerUser";
+import { changeNameController } from "../domain/cases/BuyerUser/changeBuyerUserName";
 
 const buyerUserRoute = Router()
 
@@ -22,5 +23,8 @@ buyerUserRoute.delete("/delete", (req, res) => {
     deleteBuyerUserController.run(req, res)
 })
 
+buyerUserRoute.patch("/changename", (req, res) => {
+    changeNameController.run(req, res)
+})
 
 export { buyerUserRoute }

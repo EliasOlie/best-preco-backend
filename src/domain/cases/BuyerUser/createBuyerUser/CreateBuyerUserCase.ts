@@ -1,4 +1,4 @@
-import { BuyerUser, BuyerUserDTO } from "../../../models/BuyerUser";
+import { BuyerUserDTO } from "../../../models/BuyerUser";
 import { IBuyerUserRepo } from "../../../repositories/BuyerUserRepo";
 
 class CreateBuyerUserCase{
