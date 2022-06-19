@@ -5,6 +5,7 @@ class BuyerUser extends BaseUser{
 
     constructor(props: BuyerUserDTO){
         super(props)
+        //after validating CPF do the assign
         Object.assign(this, props)
     }
 
