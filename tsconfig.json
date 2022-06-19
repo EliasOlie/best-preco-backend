@@ -7,11 +7,14 @@
     "strict": true,
     "skipLibCheck": true,
     "sourceMap": true,
-    "outDir": "dist",
+    "outDir": "./dist",
     "lib": ["esnext"],
     "strictPropertyInitialization": false
   },
   "include": [
     "src/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
   ]
 }
