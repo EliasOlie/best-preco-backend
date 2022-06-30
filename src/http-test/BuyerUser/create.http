@@ -1,0 +1,13 @@
+POST http://localhost:3000/buyer/user/create
+content-type: application/json
+
+{
+    "id": "123",
+    "userName": "Elias",
+    "userEmail": "a@b.com",
+    "userPassword": "1234",
+    "createdAt": "{{$localDatetime rfc1123}}",
+    "modifiedAt": "{{$localDatetime rfc1123}}",
+    "cpf": "123.456.789-01"
+
+}
