@@ -6,7 +6,12 @@ class DeleteBuyerUserCase {
     ){}
 
     async handle(email: string){
-        await this.buyerUserRepo.deleteBuyerUser(email)
+        const userExists = await this.buyerUserRepo.readBuyerUser(email)
+        if(userExists){
+            await this.buyerUserRepo.deleteBuyerUser(email)
+        }else{
+            throw new Error("This user does not exists")
+        }
     }
 }
 

@@ -1,9 +1,11 @@
 import { Router } from "express";
-import { createBuyerUserCase ,createBuyerUserController } from "../domain/cases/BuyerUser/createBuyerUser";
-import { readBuyerUserCase, readBuyerUserController } from "../domain/cases/BuyerUser/readBuyerUser";
-import { getAllCase, getAllController } from "../domain/cases/BuyerUser/getAll";
-import { deleteBuyerUserCase, deleteBuyerUserController } from "../domain/cases/BuyerUser/deleteBuyerUser";
-import { changeNameController } from "../domain/cases/BuyerUser/changeBuyerUserName";
+import { createBuyerUserController } from "../domain/cases/BuyerUser/createBuyerUser";
+import { readBuyerUserController } from "../domain/cases/BuyerUser/readBuyerUser";
+import { getAllController } from "../domain/cases/BuyerUser/getAll";
+import { deleteBuyerUserController } from "../domain/cases/BuyerUser/deleteBuyerUser";
+import { changeBuyerUserNameController } from "../domain/cases/BuyerUser/changeBuyerUserName";
+import { changeBuyerUserEmailController } from "../domain/cases/BuyerUser/changeBuyerUserEmail";
+import { changeBuyerUserPasswordController } from "../domain/cases/BuyerUser/changeBuyerUserPassword";
 
 const buyerUserRoute = Router()
 
@@ -23,8 +25,16 @@ buyerUserRoute.delete("/delete", (req, res) => {
     deleteBuyerUserController.run(req, res)
 })
 
-buyerUserRoute.patch("/changename", (req, res) => {
-    changeNameController.run(req, res)
+buyerUserRoute.patch("/change/name", (req, res) => {
+    changeBuyerUserNameController.run(req, res)
+})
+
+buyerUserRoute.patch("/change/email", (req, res) => {
+    changeBuyerUserEmailController.run(req, res)
+})
+
+buyerUserRoute.patch("/change/password", (req, res) => {
+    changeBuyerUserPasswordController.run(req, res)
 })
 
 export { buyerUserRoute }

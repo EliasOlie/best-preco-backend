@@ -15,7 +15,9 @@ class InMemoryBuyerUserImplementation implements IBuyerUserRepo {
     }
 
     async deleteBuyerUser(email: string): Promise<void> {
-        inMemoryDB = inMemoryDB.splice(inMemoryDB.findIndex(user => user.getUserEmail === email), 1) //Not working when ther's only one user
+        inMemoryDB = inMemoryDB.filter((user) => (
+            user.getUserEmail !== email
+        ))
     }
 
     async getAll(): Promise<BuyerUser[]> {

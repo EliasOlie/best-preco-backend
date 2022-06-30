@@ -90,4 +90,4 @@ interface SellerUserDTO extends BaseUserDTO {
   cnpj: string;
 }
 
-export { SellerUser };
+export { SellerUser, SellerUserDTO };

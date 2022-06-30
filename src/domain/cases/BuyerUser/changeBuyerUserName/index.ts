@@ -1,8 +1,8 @@
-import { ChangeNameCase } from "./ChangeNameCase";
-import { ChangeNameController } from "./ChangeNameController";
+import { ChangeBuyerUserNameCase } from "./ChangeBuyerUserNameCase";
+import { ChangeBuyerUserNameController } from "./ChangeBuyerUserNameController";
 import { InMemoryBuyerUserImplementation } from "../../../../implementations/inMemory/BuyerUser/InMemoryBuyerUserImplemetation";
 
-const useCase = new ChangeNameCase(new InMemoryBuyerUserImplementation)
-const changeNameController = new ChangeNameController(useCase)
+const changeBuyerUserNameCase = new ChangeBuyerUserNameCase(new InMemoryBuyerUserImplementation)
+const changeBuyerUserNameController = new ChangeBuyerUserNameController(changeBuyerUserNameCase)
 
-export { changeNameController }
+export { changeBuyerUserNameController }

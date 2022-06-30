@@ -7,12 +7,17 @@ class DeleteBuyerUserController {
     ){}
 
     async run(request: Request, response: Response){
-        const email = request.body
+        const payload = request.body
         try {
-            await this.useCase.handle(email)
+            await this.useCase.handle(payload.email)
             response.send()
         } catch (error) {
-            response.status(500).send()
+            if(error instanceof Error) {
+                response.status(400).send({message: error.message})
+            }else{
+
+                response.status(500).send()
+            }
         }
     }
 }
