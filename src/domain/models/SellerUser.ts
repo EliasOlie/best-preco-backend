@@ -81,9 +81,16 @@ class SellerUser extends BaseUser {
   }
 
   public get getCNPJ() {
-    return this.cnpj
+    return this.cnpj;
   }
 
+  public updateCnpj(newCnpj: string) {
+    if (this.cnpjValidation(newCnpj)) {
+      this.cnpj = newCnpj;
+    } else {
+      throw new Error("Invalid CNPJ");
+    }
+  }
 }
 
 interface SellerUserDTO extends BaseUserDTO {
