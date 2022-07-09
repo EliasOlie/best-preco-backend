@@ -11,7 +11,8 @@ describe("SellerUser Tests", () => {
     cnpj: "62.311.654/0001-93",
   };
   test("Constructor valid CNPJ", () => {
-    new SellerUser(validPayload);
+    const newUser = new SellerUser(validPayload);
+    expect(newUser.User).toStrictEqual(validPayload)
   });
   test("Constructor invalid CNPJ", () => {
     let invalidPayload = {
@@ -32,7 +33,7 @@ describe("SellerUser Tests", () => {
   let testUser = new SellerUser(validPayload)
   test("Update CNPJ success", () => {
     testUser.updateCnpj("57.945.434/0001-81")
-    expect(testUser.getCNPJ).toStrictEqual("57.945.434/0001-81")
+    expect(testUser.cnpj).toStrictEqual("57.945.434/0001-81")
   })
 
   test("Update CNPJ fail", () => {

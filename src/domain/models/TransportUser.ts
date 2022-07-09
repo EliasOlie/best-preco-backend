@@ -1,84 +1,49 @@
 import { BuyerUser, BuyerUserDTO } from "./BuyerUser";
+import { Vehicle, IVehicleDTO } from "./Vehicle";
+interface TransportUserDTO extends BuyerUserDTO {
+  cnh: string;
+  vehicles?: Array<Vehicle>
+}
 
 class TransportUser extends BuyerUser {
-  private cnh: string;
-  private placa: string;
-  private modelo: string;
-  private isValidPlaca: boolean = false;
+  private transportUserProps: TransportUserDTO;
 
   public constructor(props: TransportUserDTO) {
     super(props);
-    if (this.validatePlaca(props.placa)){
-        Object.assign(this, props);
-    }else{
-        throw new Error("Your placa is invalid or/and outdated")
+    this.transportUserProps = {
+      ...props,
+      vehicles: []
     }
   }
 
-  public get getCnh() {
-    return this.cnh;
+  public get cnh() {
+    return this.transportUserProps.cnh;
+  }
+
+  public get vehicles(){
+    return this.transportUserProps.vehicles
+  }
+
+  public get User() {
+    return this.transportUserProps
   }
 
   public updateCnh(newCnh: string) {
     if (newCnh.toLocaleLowerCase() === this.cnh.toLocaleLowerCase()) {
       throw new Error("You need to supply a new cnh, not the same");
     } else {
-      this.cnh = newCnh;
+      this.transportUserProps.cnh = newCnh;
     }
   }
 
-  public get getPlaca() {
-    return this.placa;
-  }
-
-  //Update unverified placa no caso do usuário digitar errado
-
-  public updatePlaca(newPlaca: string) {
-    if(this.isValidPlaca){
-        if (newPlaca.toLocaleLowerCase() === this.getPlaca.toLocaleLowerCase()){
-            throw new Error("You need to inform a different placa")
-        }else{
-            if (this.validatePlaca(newPlaca)){
-                this.placa = newPlaca
-            }else{
-                throw new Error("Your placa is inválid or outdated")
-            }
-        }
-    }else{
-        throw new Error("You need a verified placa to be able to change your placa")
+  public addVehicle(vehicleProps: IVehicleDTO) {
+    try {
+      this.transportUserProps.vehicles!.push(new Vehicle(vehicleProps))
+    } catch (error) {
+      throw error
     }
-  }
-
-  public get getModelo() {
-    return this.modelo;
-  }
-
-  public updateModelo(newModelo: string) {
-    if (newModelo.toLocaleLowerCase() === this.modelo.toLocaleLowerCase()) {
-      throw new Error("You need to supply a new modelo, not the same");
-    } else {
-      this.modelo = newModelo;
-    }
-  }
-
-  public get getIsValidPlaca() {
-    return this.isValidPlaca;
-  }
-
-  public updateIsValidPlaca() {
-    this.isValidPlaca = !this.isValidPlaca;
-  }
-
-  private validatePlaca(placa: string): boolean {
-    return /^\D{3}\d\D\d{2}/.test(placa)
   }
 }
 
-interface TransportUserDTO extends BuyerUserDTO {
-  cnh: string;
-  placa: string;
-  modelo: string;
-  isValidPlaca?: boolean;
-}
 
 export { TransportUser, TransportUserDTO };

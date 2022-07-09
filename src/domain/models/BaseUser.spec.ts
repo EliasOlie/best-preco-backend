@@ -14,37 +14,37 @@ describe("Base user", () => {
 
   test("Update user name", () => {
     newUser.updateUserName("Eliax");
-    expect(newUser.getUserName === "Eliax");
+    expect(newUser.userName === "Eliax");
   });
 
   test("Update user email", () => {
     newUser.updateUserEmail("a@c.com");
-    expect(newUser.getUserEmail === "a@c.co");
+    expect(newUser.userEmail === "a@c.co");
   });
 
   test("Update user password", () => {
     newUser.updateUserPassword("123");
-    expect(newUser.getUserPassword === "123");
+    expect(newUser.userPassword === "123");
   });
 
   test("Update user modified at", () => {
     newUser.updateModifiedAt("10/01/2022");
-    expect(newUser.getUserModifiedAt === "10/01/2022");
+    expect(newUser.modifiedAt === "10/01/2022");
   });
 
   test("Update user name fail", () => {
     expect(() => {
-      newUser.updateUserName(newUser.getUserName);
+      newUser.updateUserName(newUser.userName);
     }).toThrow("You need to supply a new name, not the same");
   });
   test("Update user email fail", () => {
     expect(() => {
-      newUser.updateUserEmail(newUser.getUserEmail);
+      newUser.updateUserEmail(newUser.userEmail);
     }).toThrow("You need to supply a new email, not the same");
   });
   test("Update user password fail", () => {
     expect(() => {
-      newUser.updateUserPassword(newUser.getUserPassword);
+      newUser.updateUserPassword(newUser.userPassword);
     }).toThrow("You need to supply a new password, not the same");
   });
 });
