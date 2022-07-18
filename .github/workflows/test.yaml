@@ -10,9 +10,9 @@ jobs:
       - name: Test using Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: '12'
-      - run: yarn install
-      - run: yarn test:ci
+          node-version: '18'
+      - run: curl -fsSL https://get.pnpm.io/install.sh | sh -
+      - run: pnpm test:ci
 
       - name: Tests ✅
         if: ${{ success() }}
