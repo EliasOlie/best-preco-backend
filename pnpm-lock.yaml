@@ -9,7 +9,6 @@ specifiers:
   dotenv: ^16.0.1
   express: ^4.18.1
   jest: ^28.1.1
-  jest-junit: ^14.0.0
   ts-node-dev: ^2.0.0
   typescript: ^4.7.3
 
@@ -24,7 +23,6 @@ devDependencies:
   '@types/node': 17.0.42
   dotenv: 16.0.1
   jest: 28.1.1_@types+node@17.0.42
-  jest-junit: 14.0.0
   ts-node-dev: 2.0.0_cpjtyzqdgdm5unqsjh4y25u7au
   typescript: 4.7.3
 
@@ -1993,16 +1991,6 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /jest-junit/14.0.0:
-    resolution: {integrity: sha512-kALvBDegstTROfDGXH71UGD7k5g7593Y1wuX1wpWT+QTYcBbmtuGOA8UlAt56zo/B2eMIOcaOVEON3j0VXVa4g==}
-    engines: {node: '>=10.12.0'}
-    dependencies:
-      mkdirp: 1.0.4
-      strip-ansi: 6.0.1
-      uuid: 8.3.2
-      xml: 1.0.1
-    dev: true
-
   /jest-leak-detector/28.1.1:
     resolution: {integrity: sha512-4jvs8V8kLbAaotE+wFR7vfUGf603cwYtFf1/PYEsyX2BAjSzj8hQSVTP6OWzseTl0xL6dyHuKs2JAks7Pfubmw==}
     engines: {node: ^12.13.0 || ^14.15.0 || ^16.10.0 || >=17.0.0}
@@ -2991,11 +2979,6 @@ packages:
     engines: {node: '>= 0.4.0'}
     dev: false
 
-  /uuid/8.3.2:
-    resolution: {integrity: sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==}
-    hasBin: true
-    dev: true
-
   /v8-compile-cache-lib/3.0.1:
     resolution: {integrity: sha512-wa7YjyUGfNZngI/vtK0UHAN+lgDCxBPCylVXGp0zu59Fz5aiGtNXaq3DhIov063MorB+VfufLh3JlF2KdTK3xg==}
     dev: true
@@ -3047,10 +3030,6 @@ packages:
     dependencies:
       imurmurhash: 0.1.4
       signal-exit: 3.0.7
-    dev: true
-
-  /xml/1.0.1:
-    resolution: {integrity: sha512-huCv9IH9Tcf95zuYCsQraZtWnJvBtLVE0QHMOs8bWyZAFZNDcYjsPq1nEx8jKA9y+Beo9v+7OBPRisQTjinQMw==}
     dev: true
 
   /xtend/4.0.2:
