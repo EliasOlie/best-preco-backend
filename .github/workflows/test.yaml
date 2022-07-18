@@ -24,7 +24,8 @@ jobs:
             - recursive: true
               args: [--frozen-lockfile, --strict-peer-dependencies]
             - args: [--global, gulp, prettier, typescript]
-
+      - run: pnpm test:ci
+      
       - name: Tests ✅
         if: ${{ success() }}
         run: |
