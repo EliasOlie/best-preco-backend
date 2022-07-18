@@ -5,7 +5,7 @@ class CreateSellerUserCase {
   constructor(private sellerUserRepo: ISellerUser) {}
 
   async handle(data: SellerUserDTO) {
-    const userExists = await this.sellerUserRepo.getSellerUser(data.userEmail);
+    const userExists = await this.sellerUserRepo.readSellerUser(data.userEmail);
     if (!userExists) {
       await this.sellerUserRepo.createSellerUser(data);
     } else {

@@ -4,7 +4,7 @@ class ChangeSellerUserCnpjCase {
   constructor(private sellerUserRepo: ISellerUser){}
 
   async handle(email: string, newCnpj: string) {
-    const User = await this.sellerUserRepo.getSellerUser(email)
+    const User = await this.sellerUserRepo.readSellerUser(email)
     if (!User) {
       throw new Error("This user does not exists")
     }else{

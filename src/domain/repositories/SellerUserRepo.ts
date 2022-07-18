@@ -2,7 +2,7 @@ import { SellerUser, SellerUserDTO } from "../models/SellerUser";
 
 interface ISellerUser {
   createSellerUser(sUser: SellerUserDTO): Promise<void>;
-  getSellerUser(email: string): Promise<SellerUser | null>;
+  readSellerUser(email: string): Promise<SellerUser | null>;
   deleteSellerUser(email: string): Promise<void>;
   getAll(): Promise<Array<SellerUser>>;
   updateUserCnpj(user: SellerUser, newCnpj: string): Promise<void>;

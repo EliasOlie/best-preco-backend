@@ -8,7 +8,7 @@ class InMemorytSellerUserImplementation implements ISellerUser {
     inMemoryDB.push(new SellerUser(sUser))
   }
 
-  async getSellerUser(email: string): Promise<SellerUser | null> {
+  async readSellerUser(email: string): Promise<SellerUser | null> {
     return inMemoryDB.filter((user: SellerUser) => user.userEmail === email)[0]
   }
 
