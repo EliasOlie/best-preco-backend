@@ -4,8 +4,7 @@ on: [push, pull_request]
 
 jobs:
   add_pnpm:
-    install:
-      runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: pnpm/action-setup@v.2.2.2
         with:
