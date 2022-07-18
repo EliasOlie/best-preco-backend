@@ -6,39 +6,39 @@ interface TransportUserDTO extends BuyerUserDTO {
 }
 
 class TransportUser extends BuyerUser {
-  private transportUserProps: TransportUserDTO;
+  protected props: TransportUserDTO;
 
   public constructor(props: TransportUserDTO) {
     super(props);
-    this.transportUserProps = {
+    this.props = {
       ...props,
       vehicles: []
     }
   }
 
   public get cnh() {
-    return this.transportUserProps.cnh;
+    return this.props.cnh;
   }
 
   public get vehicles(){
-    return this.transportUserProps.vehicles
+    return this.props.vehicles
   }
 
   public get User() {
-    return this.transportUserProps
+    return this.props
   }
 
   public updateCnh(newCnh: string) {
     if (newCnh.toLocaleLowerCase() === this.cnh.toLocaleLowerCase()) {
       throw new Error("You need to supply a new cnh, not the same");
     } else {
-      this.transportUserProps.cnh = newCnh;
+      this.props.cnh = newCnh;
     }
   }
 
   public addVehicle(vehicleProps: IVehicleDTO) {
     try {
-      this.transportUserProps.vehicles!.push(new Vehicle(vehicleProps))
+      this.props.vehicles!.push(new Vehicle(vehicleProps))
     } catch (error) {
       throw error
     }

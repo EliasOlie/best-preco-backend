@@ -5,12 +5,12 @@ interface SellerUserDTO extends BaseUserDTO {
 }
 
 class SellerUser extends BaseUser {
-  private sellerUserProps: SellerUserDTO;
+  protected props: SellerUserDTO;
 
   public constructor(props: SellerUserDTO) {
     super(props);
     if (this.cnpjValidation(props.cnpj)) {
-      this.sellerUserProps = props
+      this.props = props
     } else {
       throw new Error("Invalid CNPJ");
     }
@@ -85,20 +85,17 @@ class SellerUser extends BaseUser {
   }
 
   public get cnpj() {
-    return this.sellerUserProps.cnpj;
+    return this.props.cnpj;
   }
 
   public updateCnpj(newCnpj: string) {
     if (this.cnpjValidation(newCnpj)) {
-      this.sellerUserProps.cnpj = newCnpj;
+      this.props.cnpj = newCnpj;
     } else {
       throw new Error("Invalid CNPJ");
     }
   }
 
-  public get User(){
-    return this.sellerUserProps
-  }
 }
 
 export { SellerUser, SellerUserDTO };

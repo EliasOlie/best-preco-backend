@@ -7,7 +7,7 @@ class BaseUserDTO {
   modifiedAt: string;
 }
 class BaseUser {
-  private props: BaseUserDTO
+  protected props: BaseUserDTO
 
   public constructor(props: BaseUserDTO) {
     this.props = props

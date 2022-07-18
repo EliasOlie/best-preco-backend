@@ -9,11 +9,11 @@ class InMemoryBuyerUserImplementation implements IBuyerUserRepo {
   }
 
   async readBuyerUser(email: string): Promise<BuyerUser | null> {
-    return inMemoryDB.filter((user: BuyerUser) => user.getUserEmail === email)[0];
+    return inMemoryDB.filter((user: BuyerUser) => user.userEmail === email)[0];
   }
 
   async deleteBuyerUser(email: string): Promise<void> {
-    inMemoryDB = inMemoryDB.filter((user: BuyerUser) => user.getUserEmail !== email);
+    inMemoryDB = inMemoryDB.filter((user: BuyerUser) => user.userEmail !== email);
   }
 
   async getAll(): Promise<BuyerUser[]> {

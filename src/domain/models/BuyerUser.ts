@@ -5,19 +5,19 @@ class BuyerUserDTO extends BaseUserDTO {
 }
 
 class BuyerUser extends BaseUser {
-  private buyerUserProps: BuyerUserDTO;
+  protected props: BuyerUserDTO;
 
   constructor(props: BuyerUserDTO) {
     super(props);
     if (this.isCpfValid(props.cpf)) {
-      this.buyerUserProps = props
+      this.props = props
     } else {
       throw new Error("Invalid CPF");
     }
   }
 
   public get cpf() {
-    return this.buyerUserProps.cpf;
+    return this.props.cpf;
   }
   //CPF Wont change
   private isCpfValid(cpf: any) {
@@ -50,7 +50,7 @@ class BuyerUser extends BaseUser {
     return !(rest(10, 2) !== validator[0] || rest(11, 1) !== validator[1]);
   }
   public get User() {
-    return this.buyerUserProps
+    return this.props
   }
 }
 

@@ -9,7 +9,7 @@ class InMemorytSellerUserImplementation implements ISellerUser {
   }
 
   async getSellerUser(email: string): Promise<SellerUser | null> {
-    return inMemoryDB.filter((user: SellerUser) => user.getUserEmail === email)[0]
+    return inMemoryDB.filter((user: SellerUser) => user.userEmail === email)[0]
   }
 
   async getAll(): Promise<SellerUser[]> {
@@ -17,7 +17,7 @@ class InMemorytSellerUserImplementation implements ISellerUser {
   }
 
   async deleteSellerUser(email: string): Promise<void> {
-    inMemoryDB = inMemoryDB.filter((user: SellerUser) => user.getUserEmail !== email);
+    inMemoryDB = inMemoryDB.filter((user: SellerUser) => user.userEmail !== email);
   }
 
   async updateUserCnpj(user: SellerUser, newCnpj: string): Promise<void> {
