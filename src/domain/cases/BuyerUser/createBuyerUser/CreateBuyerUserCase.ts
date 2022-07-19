@@ -1,21 +1,18 @@
 import { BuyerUserDTO } from "../../../models/BuyerUser";
 import { IBuyerUserRepo } from "../../../repositories/BuyerUserRepo";
 
-class CreateBuyerUserCase{
-    constructor(
-        private buyerUserRepo: IBuyerUserRepo
-    ){}
+class CreateBuyerUserCase {
+  constructor(private buyerUserRepo: IBuyerUserRepo) {}
 
-    async handle(data: BuyerUserDTO){
-        const userExists = await this.buyerUserRepo.readBuyerUser(data.userEmail)
+  async handle(data: BuyerUserDTO) {
+    const userExists = await this.buyerUserRepo.readBuyerUser(data.userEmail);
 
-        if (!userExists){
-            await this.buyerUserRepo.createBuyerUser(data)
-        }else{
-            throw new Error("This user already exists!")
-        }
-
+    if (!userExists) {
+      await this.buyerUserRepo.createBuyerUser(data);
+    } else {
+      throw new Error("This user already exists!");
     }
+  }
 }
 
-export {CreateBuyerUserCase}
+export { CreateBuyerUserCase };

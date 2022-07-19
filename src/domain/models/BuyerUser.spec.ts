@@ -11,7 +11,8 @@ describe("Buyer user tests", () => {
     cpf: "391.360.920-29",
   };
   test("Constructor", () => {
-    new BuyerUser(validPayload)
+    const newUser = new BuyerUser(validPayload)
+    expect(newUser.User).toStrictEqual(validPayload)
   })
   test("Constructor fail", () => {
     let invalidPayload =  {

@@ -1,12 +1,16 @@
 import { BaseUser, BaseUserDTO } from "./BaseUser";
 
+interface SellerUserDTO extends BaseUserDTO {
+  cnpj: string;
+}
+
 class SellerUser extends BaseUser {
-  private cnpj: string;
+  protected props: SellerUserDTO;
 
   public constructor(props: SellerUserDTO) {
     super(props);
     if (this.cnpjValidation(props.cnpj)) {
-      Object.assign(this, props);
+      this.props = props
     } else {
       throw new Error("Invalid CNPJ");
     }
@@ -80,14 +84,18 @@ class SellerUser extends BaseUser {
     return digit1 === digits[1];
   }
 
-  public get getCNPJ() {
-    return this.cnpj
+  public get cnpj() {
+    return this.props.cnpj;
   }
 
-}
+  public updateCnpj(newCnpj: string) {
+    if (this.cnpjValidation(newCnpj)) {
+      this.props.cnpj = newCnpj;
+    } else {
+      throw new Error("Invalid CNPJ");
+    }
+  }
 
-interface SellerUserDTO extends BaseUserDTO {
-  cnpj: string;
 }
 
 export { SellerUser, SellerUserDTO };

@@ -1,19 +1,23 @@
 import { BaseUser, BaseUserDTO } from "./BaseUser";
 
+class BuyerUserDTO extends BaseUserDTO {
+  cpf: string;
+}
+
 class BuyerUser extends BaseUser {
-  private cpf: string;
+  protected props: BuyerUserDTO;
 
   constructor(props: BuyerUserDTO) {
     super(props);
     if (this.isCpfValid(props.cpf)) {
-      Object.assign(this, props);
+      this.props = props
     } else {
       throw new Error("Invalid CPF");
     }
   }
 
-  public get getCpf() {
-    return this.cpf;
+  public get cpf() {
+    return this.props.cpf;
   }
   //CPF Wont change
   private isCpfValid(cpf: any) {
@@ -45,10 +49,9 @@ class BuyerUser extends BaseUser {
       10;
     return !(rest(10, 2) !== validator[0] || rest(11, 1) !== validator[1]);
   }
-}
-
-class BuyerUserDTO extends BaseUserDTO {
-  cpf: string;
+  public get User() {
+    return this.props
+  }
 }
 
 export { BuyerUser, BuyerUserDTO };
