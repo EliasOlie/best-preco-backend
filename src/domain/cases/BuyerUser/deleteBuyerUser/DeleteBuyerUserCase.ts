@@ -1,10 +1,9 @@
 import { IBuyerUserRepo } from "../../../repositories/BuyerUserRepo";
-
 class DeleteBuyerUserCase {
     constructor(
         private buyerUserRepo: IBuyerUserRepo
     ){}
-
+    
     async handle(email: string){
         const userExists = await this.buyerUserRepo.readBuyerUser(email)
         if(userExists){

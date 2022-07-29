@@ -23,4 +23,4 @@ class ChangeBuyerUserPasswordController {
   }
 }
 
-export { ChangeBuyerUserPasswordController }
+export { ChangeBuyerUserPasswordController }  

@@ -6,7 +6,7 @@ class ChangeBuyerUserNameCase {
   async handle(email: string, newName: string) {
     let user = await this.buyerUserRepo.readBuyerUser(email);
     if (user) {
-      await this.buyerUserRepo.updateUserName(user, newName);
+      this.buyerUserRepo.updateUserName(user, newName);
     } else {
       throw new Error("This user does not exists!");
     }

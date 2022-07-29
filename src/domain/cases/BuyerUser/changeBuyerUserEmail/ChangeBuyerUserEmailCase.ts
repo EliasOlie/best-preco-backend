@@ -1,3 +1,4 @@
+import { BuyerUser } from "../../../models/BuyerUser";
 import { IBuyerUserRepo } from "../../../repositories/BuyerUserRepo";
 
 class ChangeBuyerUserEmailCase {
@@ -6,9 +7,9 @@ class ChangeBuyerUserEmailCase {
   ){}
 
   async handle(email: string, newEmail: string){
-    const userExists = await this.buyerUserRepo.readBuyerUser(email)
+    let userExists = await this.buyerUserRepo.readBuyerUser(email)
     if(userExists){
-      userExists.updateUserEmail(newEmail)
+      this.buyerUserRepo.updateUserEmail(userExists, newEmail)
     }else{
       throw new Error("This user does not exists")
     }

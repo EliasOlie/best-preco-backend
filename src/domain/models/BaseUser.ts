@@ -1,5 +1,5 @@
 class BaseUserDTO {
-  id: string;
+  id?: string;
   userName: string;
   userEmail: string;
   userPassword: string;

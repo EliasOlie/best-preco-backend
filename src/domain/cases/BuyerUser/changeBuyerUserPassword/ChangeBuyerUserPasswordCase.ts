@@ -8,7 +8,7 @@ class ChangeBuyerUserPasswordCase {
   async handle(email: string,newPassword: string){
     let user = await this.buyerUserRepo.readBuyerUser(email)
     if(user){
-      user.updateUserPassword(newPassword)
+      this.buyerUserRepo.updateUserPassword(user, newPassword)
     }else{
       throw new Error("This user does not exists")
     }
