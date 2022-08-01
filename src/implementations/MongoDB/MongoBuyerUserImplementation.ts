@@ -1,10 +1,10 @@
 import { Collections } from "../../dbal/mongo.service";
-import { BuyerUser, BuyerUserDTO } from "../../domain/models/BuyerUser";
-import { IBuyerUserRepo } from "../../domain/repositories/BuyerUserRepo";
+import { BuyerUser, BuyerUserDTO, IBuyerUserDTO } from "../../domain/models/BuyerUser";
+import { IBuyerUser } from "../../domain/repositories/BuyerUserRepo";
 import { ObjectId } from "mongodb";
 import * as crypto from "crypto";
 
-class MongoDBBuyerUserImplementation implements IBuyerUserRepo {
+class MongoDBBuyerUserImplementation implements IBuyerUser {
   async createBuyerUser(bUser: BuyerUserDTO): Promise<void> {
     const salt = crypto.randomBytes(16).toString("hex");
 
@@ -64,7 +64,7 @@ class MongoDBBuyerUserImplementation implements IBuyerUserRepo {
     return user;
   }
 
-  async updateUserEmail(user: BuyerUserDTO, newEmail: string): Promise<void> {
+  async updateUserEmail(user: IBuyerUserDTO, newEmail: string): Promise<void> {
     const email = user.props.userEmail;
     const newUser = new BuyerUser(user.props);
     newUser.updateUserEmail(newEmail);
@@ -80,7 +80,7 @@ class MongoDBBuyerUserImplementation implements IBuyerUserRepo {
     }
   }
 
-  async updateUserName(user: BuyerUserDTO, newName: string): Promise<void> {
+  async updateUserName(user: IBuyerUserDTO, newName: string): Promise<void> {
     const email = user.props.userEmail;
     const newUser = new BuyerUser(user.props);
     newUser.updateUserName(newName);
@@ -97,7 +97,7 @@ class MongoDBBuyerUserImplementation implements IBuyerUserRepo {
   }
 
   async updateUserPassword(
-    user: BuyerUserDTO,
+    user: IBuyerUserDTO,
     newPassword: string
   ): Promise<void> {
     const salt = crypto.randomBytes(16).toString("hex");

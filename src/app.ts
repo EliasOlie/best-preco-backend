@@ -2,6 +2,20 @@ import express from "express"
 import { buyerUserRoute } from "./routes/BuyerUserRouter"
 import { sellerUserRoute } from "./routes/SellerUserRouter"
 import { transportUserRoute } from "./routes/TransportUserRoute"
+import { dbConnectSellerUser, dbConnectBuyerUser, dbConnectTransportUser } from "./dbal/mongo.service"
+
+dbConnectBuyerUser().catch((err) => {
+    console.log(err)
+})
+
+dbConnectSellerUser().catch((err) => {
+    console.log(err)
+})
+
+dbConnectTransportUser().catch((err) => {
+    console.log(err)
+})
+
 
 const app = express()
 app.disable("x-powered-by")

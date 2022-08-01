@@ -1,16 +1,16 @@
-import { TransportUser, TransportUserDTO } from "../models/TransportUser"
+import { TransportUser, TransportUserDTO, ITransportUserDTO } from "../models/TransportUser"
 import { Vehicle } from "../models/Vehicle"
 
 interface ITransportUser {
-  createTransportUser(payload: TransportUserDTO): Promise<void>
-  readTransportUser(email: string): Promise<TransportUser>
-  getAll(): Promise<Array<TransportUser>>
+  createTransportUser(tUser: TransportUserDTO): Promise<void>
+  readTransportUser(email: string): Promise<ITransportUserDTO | null>
+  getAll(): Promise<Array<TransportUserDTO>>
   deleteTransportUser(email: string): Promise<void>
-  updateTransportUserName(user: TransportUser, newName: string): Promise<void>
-  updateTransportUserEmail(user: TransportUser, newEmail: string): Promise<void>
-  updateTransportUserPassword(user: TransportUser, newPassword: string): Promise<void>
-  updateTransportUserCNH(user: TransportUser, newCNH: string): Promise<void>
-  addVehicleToTransportUser(user: TransportUser, vehicle: Vehicle): Promise<void>
+  updateTransportUserName(user: ITransportUserDTO, newName: string): Promise<void>
+  updateTransportUserEmail(user: ITransportUserDTO, newEmail: string): Promise<void>
+  updateTransportUserPassword(user: ITransportUserDTO, newPassword: string): Promise<void>
+  updateTransportUserCNH(user: ITransportUserDTO, newCNH: string): Promise<void>
+  addVehicleToTransportUser(user: ITransportUserDTO, vehicle: Vehicle): Promise<void>
 }
 
 export { ITransportUser }

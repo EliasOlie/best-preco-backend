@@ -9,7 +9,7 @@ class ChangeSellerUserNameCase {
     if(!User) {
       throw new Error("This User does not exists")
     }else{
-      User.updateUserName(newName)
+      this.sellerUserRepo.updateUserName(User, newName)
     }
   }
 }

@@ -1,8 +1,8 @@
 import { BuyerUserDTO } from "../../../models/BuyerUser";
-import { IBuyerUserRepo } from "../../../repositories/BuyerUserRepo";
+import { IBuyerUser } from "../../../repositories/BuyerUserRepo";
 
 class CreateBuyerUserCase {
-  constructor(private buyerUserRepo: IBuyerUserRepo) {}
+  constructor(private buyerUserRepo: IBuyerUser) {}
 
   async handle(data: BuyerUserDTO) {
     const userExists = await this.buyerUserRepo.readBuyerUser(data.userEmail);

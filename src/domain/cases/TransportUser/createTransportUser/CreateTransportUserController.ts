@@ -10,7 +10,7 @@ class CreateTransportUserController {
 
     try {
       await this.useCase.handle(transportUserPayload)
-      response.send()
+      response.status(201).send()
     } catch (error) {
       if(error instanceof Error) {
         response.status(400).send({message: error.message})

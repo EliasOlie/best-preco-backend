@@ -1,9 +1,8 @@
-import { BuyerUser } from "../../../models/BuyerUser";
-import { IBuyerUserRepo } from "../../../repositories/BuyerUserRepo";
+import { IBuyerUser } from "../../../repositories/BuyerUserRepo";
 
 class ChangeBuyerUserEmailCase {
   constructor(
-    private buyerUserRepo: IBuyerUserRepo
+    private buyerUserRepo: IBuyerUser
   ){}
 
   async handle(email: string, newEmail: string){

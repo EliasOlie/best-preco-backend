@@ -7,6 +7,7 @@ import { changeTransportUserNameController } from "../domain/cases/TransportUser
 import { changeTransportUserEmailController } from "../domain/cases/TransportUser/changeTransportUserEmail";
 import { changeTransportUserPasswordController } from "../domain/cases/TransportUser/changeTranportUserPassword";
 import { changeTransportUserCnhController } from "../domain/cases/TransportUser/changeTransportUserCnh";
+import { addVehicleController } from "../domain/cases/TransportUser/addVehicle";
 
 const transportUserRoute = Router()
 
@@ -40,6 +41,10 @@ transportUserRoute.patch("/change/password", (req, res) => {
 
 transportUserRoute.patch("/change/cnh", (req, res) => {
   changeTransportUserCnhController.run(req, res)
+})
+
+transportUserRoute.post("/add/vehicle", (req, res) => {
+  addVehicleController.run(req, res)
 })
 
 export { transportUserRoute }

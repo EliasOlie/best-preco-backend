@@ -8,7 +8,7 @@ class ChangeSellerUserCnpjCase {
     if (!User) {
       throw new Error("This user does not exists")
     }else{
-      User.updateCnpj(newCnpj)
+      this.sellerUserRepo.updateUserCnpj(User,newCnpj)
     }
   }
 }

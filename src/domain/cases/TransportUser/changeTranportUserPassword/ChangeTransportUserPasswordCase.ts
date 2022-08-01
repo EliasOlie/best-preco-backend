@@ -7,7 +7,7 @@ class ChangeTransportUserPasswordCase {
     const user = await this.transportUserRepo.readTransportUser(email)
 
     if(user){
-      user.updateUserPassword(newPassword)
+      this.transportUserRepo.updateTransportUserPassword(user, newPassword)
     }else{
       throw new Error("This user does not exists")
     }

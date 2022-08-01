@@ -5,6 +5,10 @@ interface TransportUserDTO extends BuyerUserDTO {
   vehicles?: Array<Vehicle>
 }
 
+interface ITransportUserDTO {
+  props: TransportUserDTO
+}
+
 class TransportUser extends BuyerUser {
   protected props: TransportUserDTO;
 
@@ -46,4 +50,4 @@ class TransportUser extends BuyerUser {
 }
 
 
-export { TransportUser, TransportUserDTO };
+export { TransportUser, TransportUserDTO, ITransportUserDTO };

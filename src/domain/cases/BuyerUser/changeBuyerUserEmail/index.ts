@@ -1,4 +1,4 @@
-import { InMemoryBuyerUserImplementation } from "../../../../implementations/inMemory/BuyerUser/InMemoryBuyerUserImplemetation";
+import { InMemoryBuyerUserImplementation } from "../../../../implementations/inMemory/InMemoryBuyerUserImplemetation";
 import { ChangeBuyerUserEmailCase } from "./ChangeBuyerUserEmailCase";
 import { ChangeBuyerUserEmailController } from "./ChangeBuyerUserEmailController";
 import { MongoDBBuyerUserImplementation } from "../../../../implementations/MongoDB/MongoBuyerUserImplementation";

@@ -9,7 +9,7 @@ class ChangeSellerUserPasswordCase {
     if(!User){
       throw new Error("This user does not exists")
     }else{
-      User.updateUserPassword(newPassword)
+      this.sellerUserRepo.updateUserPassword(User,newPassword)
     }
   }
 }

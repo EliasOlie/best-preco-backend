@@ -1,8 +1,8 @@
-import { IBuyerUserRepo } from "../../../repositories/BuyerUserRepo";
+import { IBuyerUser } from "../../../repositories/BuyerUserRepo";
 
 class GetAllCase {
     constructor(
-        private buyerUserRepo: IBuyerUserRepo
+        private buyerUserRepo: IBuyerUser
     ){}
 
     async handle(){

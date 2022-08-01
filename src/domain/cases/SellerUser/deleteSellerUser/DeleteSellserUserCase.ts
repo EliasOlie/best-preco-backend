@@ -4,7 +4,7 @@ class DeleteSellerUserCase {
   constructor(private sellerUserRepo: ISellerUser){}
 
   async handle(email: string) {
-    const userExists = await this.sellerUserRepo.getSellerUser(email)
+    const userExists = await this.sellerUserRepo.readSellerUser(email)
     if(!userExists) {
       throw new Error("This user does not exists")
     }else{

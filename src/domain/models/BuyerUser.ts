@@ -1,5 +1,9 @@
 import { BaseUser, BaseUserDTO } from "./BaseUser";
 
+interface IBuyerUserDTO {
+  props: BuyerUserDTO
+}
+
 class BuyerUserDTO extends BaseUserDTO {
   cpf: string;
 }
@@ -54,4 +58,4 @@ class BuyerUser extends BaseUser {
   }
 }
 
-export { BuyerUser, BuyerUserDTO };
+export { BuyerUser, BuyerUserDTO, IBuyerUserDTO };

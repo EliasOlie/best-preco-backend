@@ -4,6 +4,10 @@ interface SellerUserDTO extends BaseUserDTO {
   cnpj: string;
 }
 
+interface ISellerUserDTO {
+  props: SellerUserDTO
+}
+
 class SellerUser extends BaseUser {
   protected props: SellerUserDTO;
 
@@ -98,4 +102,4 @@ class SellerUser extends BaseUser {
 
 }
 
-export { SellerUser, SellerUserDTO };
+export { SellerUser, SellerUserDTO, ISellerUserDTO };

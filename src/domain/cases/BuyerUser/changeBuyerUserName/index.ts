@@ -1,6 +1,6 @@
 import { ChangeBuyerUserNameCase } from "./ChangeBuyerUserNameCase";
 import { ChangeBuyerUserNameController } from "./ChangeBuyerUserNameController";
-import { InMemoryBuyerUserImplementation } from "../../../../implementations/inMemory/BuyerUser/InMemoryBuyerUserImplemetation";
+import { InMemoryBuyerUserImplementation } from "../../../../implementations/inMemory/InMemoryBuyerUserImplemetation";
 import { MongoDBBuyerUserImplementation } from "../../../../implementations/MongoDB/MongoBuyerUserImplementation";
 
 const changeBuyerUserNameCase = new ChangeBuyerUserNameCase(new MongoDBBuyerUserImplementation)

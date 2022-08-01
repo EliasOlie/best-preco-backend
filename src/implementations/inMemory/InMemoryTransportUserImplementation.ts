@@ -1,6 +1,6 @@
-import { TransportUserDTO, TransportUser } from "../../../domain/models/TransportUser";
-import { Vehicle } from "../../../domain/models/Vehicle";
-import { ITransportUser } from "../../../domain/repositories/TransportUserRepo";
+import { TransportUser, TransportUserDTO } from "../../domain/models/TransportUser";
+import { Vehicle } from "../../domain/models/Vehicle";
+import { ITransportUser } from "../../domain/repositories/TransportUserRepo"
 
 let inMemoryDB: Array<TransportUser> = []
 

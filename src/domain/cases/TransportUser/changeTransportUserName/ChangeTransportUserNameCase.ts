@@ -7,7 +7,7 @@ class ChangeTransportUserNameCase {
     const user = await this.transportUserRepo.readTransportUser(email)
 
     if(user){
-      user.updateUserName(newName)
+      this.transportUserRepo.updateTransportUserName(user, newName)
     }else{
       throw new Error("This user does not exists")
     }

@@ -1,9 +1,9 @@
-import { BuyerUser, BuyerUserDTO } from "../../../domain/models/BuyerUser";
-import { IBuyerUserRepo } from "../../../domain/repositories/BuyerUserRepo";
+import { BuyerUser, BuyerUserDTO, IBuyerUserDTO } from "../../domain/models/BuyerUser";
+import { IBuyerUser } from "../../domain/repositories/BuyerUserRepo";
 
 let inMemoryDB: Array<BuyerUser> = [];
 
-class InMemoryBuyerUserImplementation implements IBuyerUserRepo {
+class InMemoryBuyerUserImplementation implements IBuyerUser {
   async createBuyerUser(bUser: BuyerUserDTO): Promise<void> {
     inMemoryDB.push(new BuyerUser(bUser));
   }
@@ -20,20 +20,21 @@ class InMemoryBuyerUserImplementation implements IBuyerUserRepo {
     return inMemoryDB;
   }
 
-  async updateUserName(user: BuyerUser, newName: string): Promise<void> {
-    user.updateUserName(newName);
+  async updateUserName(user: IBuyerUserDTO, newName: string): Promise<void> {
+    let nUser = new BuyerUser(user.props)
+    nUser.updateUserName(newName);
     let modificationAt = new Date(Date.now());
-    user.updateModifiedAt(modificationAt.toLocaleDateString());
+    nUser.updateModifiedAt(modificationAt.toLocaleDateString());
   }
 
-  async updateUserEmail(user: BuyerUser, newEmail: string): Promise<void> {
+  async updateUserEmail(user: IBuyerUserDTO, newEmail: string): Promise<void> {
     user.updateUserEmail(newEmail);
     let modificationAt = new Date(Date.now());
     user.updateModifiedAt(modificationAt.toLocaleDateString());
   }
 
   async updateUserPassword(
-    user: BuyerUser,
+    user: IBuyerUserDTO,
     newPassword: string
   ): Promise<void> {
     user.updateUserPassword(newPassword);

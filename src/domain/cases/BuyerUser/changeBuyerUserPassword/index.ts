@@ -1,5 +1,5 @@
 import { ChangeBuyerUserPasswordCase } from "./ChangeBuyerUserPasswordCase";
-import { InMemoryBuyerUserImplementation } from "../../../../implementations/inMemory/BuyerUser/InMemoryBuyerUserImplemetation";
+import { InMemoryBuyerUserImplementation } from "../../../../implementations/inMemory/InMemoryBuyerUserImplemetation";
 import { ChangeBuyerUserPasswordController } from "./ChangeBuyerUserPasswordController";
 import { MongoDBBuyerUserImplementation } from "../../../../implementations/MongoDB/MongoBuyerUserImplementation";
 

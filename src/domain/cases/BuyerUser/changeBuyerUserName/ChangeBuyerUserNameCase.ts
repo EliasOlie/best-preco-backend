@@ -1,7 +1,7 @@
-import { IBuyerUserRepo } from "../../../repositories/BuyerUserRepo";
+import { IBuyerUser } from "../../../repositories/BuyerUserRepo";
 
 class ChangeBuyerUserNameCase {
-  constructor(private buyerUserRepo: IBuyerUserRepo) {}
+  constructor(private buyerUserRepo: IBuyerUser) {}
 
   async handle(email: string, newName: string) {
     let user = await this.buyerUserRepo.readBuyerUser(email);

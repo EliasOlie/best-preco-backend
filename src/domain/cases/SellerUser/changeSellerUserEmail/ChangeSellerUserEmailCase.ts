@@ -8,7 +8,7 @@ class ChangeSellerUserEmailCase {
     if(!User){
       throw new Error("This user does not exists")
     }else{
-      User.updateUserEmail(newEmail)
+      this.sellerUserRepo.updateUserEmail(User, newEmail)
     }
   }
 }

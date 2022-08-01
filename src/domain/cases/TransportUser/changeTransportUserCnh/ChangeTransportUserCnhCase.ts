@@ -7,7 +7,7 @@ class ChangeTransportUserCnhCase {
     const user = await this.transportUserRepo.readTransportUser(email)
 
     if(user){
-      user.updateCnh(newCnh)
+      this.transportUserRepo.updateTransportUserCNH(user, newCnh)
     }else{
       throw new Error("This user does not exists")
     }
